@@ -66,7 +66,7 @@ const mainSlice = createSlice({
                         counter++;
                     }
                 }
-                if (counter == 3) {
+                if (counter == 3 && state.gameStatus === "playing") {
                     state.gameStatus = "draw";
                 }
 

@@ -17,6 +17,7 @@ const mainSlice = createSlice({
     reducers: {
         move(state, action: PayloadAction<{x: number, y:number}>) {
             //корректность ввода
+            if (state.field[action.payload.x][action.payload.y] === null) {
                 //правила игры
 
                 //обработка победы
@@ -24,6 +25,9 @@ const mainSlice = createSlice({
                 //ничья
 
                 //правила игры продолжение
+            } else {
+                alert("Ячейка занята")
+            }
 
         },
         //рестарт

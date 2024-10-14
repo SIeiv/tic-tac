@@ -79,7 +79,13 @@ const mainSlice = createSlice({
         },
         //рестарт
         restart(state) {
-
+            state.turn = 1;
+            state.gameStatus = "playing";
+            state.field = [
+                [null, null, null],
+                [null, null, null],
+                [null, null, null],
+            ];
         }
     }
 })

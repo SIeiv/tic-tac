@@ -60,6 +60,15 @@ const mainSlice = createSlice({
                 }
 
                 //ничья
+                counter = 0;
+                for (let x = 0; x < state.field.length; x++) {
+                    if (state.field[x].every(y => y !== null)) {
+                        counter++;
+                    }
+                }
+                if (counter == 3) {
+                    state.gameStatus = "draw";
+                }
 
                 //правила игры продолжение
                 if (state.gameStatus === "playing") state.turn = state.turn === 1 ? 2 : 1;

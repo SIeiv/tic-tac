@@ -19,12 +19,14 @@ const mainSlice = createSlice({
             //корректность ввода
             if (state.field[action.payload.x][action.payload.y] === null) {
                 //правила игры
+                state.field[action.payload.x][action.payload.y] = state.turn === 1 ? "cross" : "zero";
 
                 //обработка победы
 
                 //ничья
 
                 //правила игры продолжение
+                if (state.gameStatus === "playing") state.turn = state.turn === 1 ? 2 : 1;
             } else {
                 alert("Ячейка занята")
             }
